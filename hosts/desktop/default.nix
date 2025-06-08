@@ -15,6 +15,7 @@
       ../../modules/amdgpu.nix
       ../../modules/firefox.nix
       ../../modules/steam.nix
+      ../../modules/openvpn.nix
   ];
   dnscrypt-proxy.enable = true;
 
