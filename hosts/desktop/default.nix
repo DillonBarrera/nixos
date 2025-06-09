@@ -54,6 +54,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
 
+    netcat-gnu
     wget
     curl
     kitty
