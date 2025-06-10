@@ -16,6 +16,7 @@ let
 in {
   programs.firefox = {
     enable = true;
+    # package = pkgs.librewolf; # <-- Uncomment to switch over to Librewolf
 
     policies = {
       DisablePocket = true;
