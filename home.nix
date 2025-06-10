@@ -3,7 +3,13 @@
 {
   home.username = "db";
   home.homeDirectory = "/home/db";
-
+  # Automatically run nix-collect-garbage at a specified time
+  home.nix.gc {
+    automatic = true;
+    frequency = "weekly";
+    persistent = true;
+    options = "--delete-older-than 30d";
+  };
   home.packages = with pkgs; [
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     git
