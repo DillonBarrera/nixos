@@ -10,11 +10,10 @@
     persistent = true;
     options = "--delete-older-than 30d";
   };
-  home.packages = with pkgs; [
+  home.packages = [
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
-    git
-
-    usbutils # lsusb
+    pkgs.git
+    pkgs.usbutils # lsusb
   ];
 
   programs.firefox = {

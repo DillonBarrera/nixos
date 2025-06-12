@@ -46,7 +46,7 @@
   users.users.db = {
      isNormalUser = true;
      extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-   };
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   

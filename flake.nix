@@ -17,7 +17,10 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
+  let
+  in
+  {
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -26,7 +29,7 @@
           # Normal NixOS modules
           ./hosts/desktop/default.nix
          
-          # Home-manager bridge
+          # Enable the home-manager NixOS module from the home-manager flake input.
           home-manager.nixosModules.home-manager 
 
           # Home-manager config block
