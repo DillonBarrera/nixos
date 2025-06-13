@@ -5,17 +5,9 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../modules/btrfs.nix
-      ../../modules/dnscrypt-proxy.nix
-      ../../modules/vim.nix
-      ../../modules/wayland.nix
-      ../../modules/pipewire.nix
-      ../../modules/amdgpu.nix
-      ../../modules/firefox.nix
-      ../../modules/steam.nix
-      ../../modules/openvpn.nix
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules
   ];
   dnscrypt-proxy.enable = true;
 
