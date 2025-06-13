@@ -21,7 +21,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/desktop/default.nix
+          ./desktop
           # Enable the home-manager NixOS module from the home-manager flake input.
           home-manager.nixosModules.home-manager 
           {
