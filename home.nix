@@ -1,6 +1,10 @@
 { config, pkgs, inputs, ... }:
 
 {
+  imports = [
+    ./hm-modules/uwsm-env.nix
+  ];
+
   home.username = "db";
   home.homeDirectory = "/home/db";
   # Automatically run nix-collect-garbage at a specified time
