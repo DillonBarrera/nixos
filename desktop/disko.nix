@@ -1,8 +1,8 @@
-{ disks ? throw "Missing argument 'disks'. Set it explicitly, e.g.: disks = [ '/dev/sda' ]", ... }:
+{ disks ? throw "Missing argument 'disks'. Set it explicitly, e.g.: disks = [ '/dev/sda' ]", hostname, ... }:
 {
   disko.devices = {
     disk = {
-      aconite = {
+      "${hostname}" = {
         type = "disk";
         device = builtins.elemAt disks 0;
         content = {
