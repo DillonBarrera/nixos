@@ -12,7 +12,7 @@
 
     disko = {
       url = "github:nix-community/disko/latest";
-      inputs.nixpkgs.follow = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     rose-pine-hyprcursor = {
@@ -31,6 +31,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./desktop
+          disko.nixosModules.disko
           # Enable the home-manager NixOS module from the home-manager flake input.
           home-manager.nixosModules.home-manager 
           {
