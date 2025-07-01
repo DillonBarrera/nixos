@@ -3,6 +3,7 @@
 {
   imports = [
     ./hm-modules/uwsm-env.nix
+    ./hm-modules/kitty.nix
   ];
 
   home.username = "db";
