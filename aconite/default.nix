@@ -48,6 +48,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
 
+    gptfdisk
     netcat-gnu
     wget
     curl
