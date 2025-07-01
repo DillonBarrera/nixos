@@ -8,6 +8,7 @@
   imports = [
     ./hardware-configuration.nix
     ../modules
+    ( import ./disko.nix { disks = [ "/dev/sda" ]; hostname = config.networking.hostName; })
   ];
   dnscrypt-proxy.enable = true;
 
@@ -17,7 +18,7 @@
   boot.kernelParams = [
     "quiet"
   ];
-  networking.hostName = "desktop"; # Define your hostname.
+  networking.hostName = "aconite"; # Define your hostname.
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
