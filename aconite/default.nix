@@ -8,7 +8,7 @@
   imports = [
     ./hardware-configuration.nix
     ../modules
-    ( import ./disko.nix { disks = [ "/dev/sda" ]; hostname = config.networking.hostName; })
+    ( import ./disko.nix { disks = [ "/dev/disk/by-id/nvme-CT2000T500SSD8_240546F39100" ]; hostname = config.networking.hostName; })
   ];
   dnscrypt-proxy.enable = true;
 
