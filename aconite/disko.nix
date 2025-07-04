@@ -30,7 +30,7 @@
                 extraOpenArgs = [ ];
                 settings = {
                   allowDiscards = true;
-                  keyFile = "/run/usb-key/hdd.key";
+                  keyFile = "/run/keys/hdd.key";
                   fallbackToPassword = true;
                   preOpenCommands = ''
                     for i in $(seq 1 30); do
