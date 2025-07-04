@@ -24,15 +24,25 @@
             luks = {
               priority = 2;
               size = "100%";
-              #uuid = "";
               content = {
                 type = "luks";
                 name = "crypt";
                 extraOpenArgs = [ ];
-                #passwordFile = "/tmp/secret.key";
                 settings = {
                   allowDiscards = true;
-                  #keyFile = "/tmp/secret.key";
+                  keyFile = "/run/usb-key/hdd.key";
+                  fallbackToPassword = true;
+                  preOpenCommands = ''
+                    for i in $(seq 1 30); do
+                      if mount -n -t ext4 -o ro,noatime,nodev,nosuid /dev/disk/by-partuuid/3eedfb3e-f7b0-4ca3-8712-6dd6f56fea81 /run/keys; then
+                        break
+                      fi
+                      sleep 1
+                    done
+                  '';
+                  postOpenCommands = ''
+                    umount -n /run/keys || true
+                  '';
                 };
                 content = {
                   type = "lvm_pv";
