@@ -19,6 +19,7 @@
   boot.kernelParams = [
     "quiet"
   ];
+  boot.initrd.verbose = false;
   networking.hostName = "aconite"; # Define your hostname.
 
   # Set your time zone.

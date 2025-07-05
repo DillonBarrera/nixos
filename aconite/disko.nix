@@ -33,6 +33,7 @@
                   keyFile = "/run/keys/hdd.key";
                   fallbackToPassword = true;
                   preOpenCommands = ''
+                    sleep 1
                     for i in $(seq 1 30); do
                       if mount -n -t ext4 -o ro,noatime,nodev,nosuid /dev/disk/by-partuuid/3eedfb3e-f7b0-4ca3-8712-6dd6f56fea81 /run/keys; then
                         break
