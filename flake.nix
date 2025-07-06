@@ -26,7 +26,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, lanzaboote ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, disko, lanzaboote, ... } @ inputs:
   let
   in
   {
