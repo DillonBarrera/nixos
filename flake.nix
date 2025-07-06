@@ -15,13 +15,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     rose-pine-hyprcursor = {
       url = "github:ndom91/rose-pine-hyprcursor";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, disko, lanzaboote ... } @ inputs:
   let
   in
   {
@@ -32,7 +37,7 @@
         modules = [
           ./aconite
           disko.nixosModules.disko
-          # Enable the home-manager NixOS module from the home-manager flake input.
+          lanzaboote.nixosModules.lanzaboote
           home-manager.nixosModules.home-manager 
           {
             home-manager.useGlobalPkgs = true;
