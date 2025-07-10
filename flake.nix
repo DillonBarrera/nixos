@@ -42,7 +42,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.db = import ./home.nix;
+            home-manager.users.db = import ./aconite/home.nix;
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
