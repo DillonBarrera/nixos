@@ -18,6 +18,8 @@
     inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     pkgs.git
     pkgs.usbutils # lsusb
+    pkgs.fastfetch
+    pkgs.rose-pine-cursor
   ];
 
   home.sessionVariables = { 

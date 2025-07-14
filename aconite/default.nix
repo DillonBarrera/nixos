@@ -55,7 +55,6 @@
     curl
     kitty
     tmux
-    neofetch
     mesa
     xdg-utils
     #inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
