@@ -14,12 +14,14 @@
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.consoleMode = "max";
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
     "quiet"
   ];
   boot.initrd.verbose = false;
+  boot.initrd.kernelModules = [ "amdgpu" ];
   networking.hostName = "aconite"; # Define your hostname.
 
   # Set your time zone.
@@ -40,7 +42,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.db = {
      isNormalUser = true;
-     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "networkmanager" "input" ]; # Enable ‘sudo’ for the user.
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

@@ -8,8 +8,8 @@
     };
 
     initExtra = ''
-      if uwsm check may-start; then
-        exec uwsm start hyprland-uwsm.desktop
+      if uwsm check may-start && uwsm select; then
+        exec uwsm start default
       fi
     '';
   };

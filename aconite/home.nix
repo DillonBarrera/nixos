@@ -20,10 +20,17 @@
     pkgs.usbutils # lsusb
     pkgs.fastfetch
     pkgs.rose-pine-cursor
+    pkgs.brave
   ];
 
   home.sessionVariables = { 
     BROWSER = "firefox";
+  };
+
+  xdg.mimeApps.enable = true;
+
+  xdg.mimeApps.defaultApplications = {
+    "application/pdf" = "firefox.desktop";
   };
 
 # This value determines the Home Manager release that your configuration is
