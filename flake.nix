@@ -31,6 +31,7 @@
   in
   {
     nixosConfigurations = {
+    # Main Desktop
       aconite = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
@@ -44,6 +45,21 @@
             home-manager.useUserPackages = true;
             home-manager.users.db = import ./aconite/home.nix;
             home-manager.extraSpecialArgs = { inherit inputs; };
+          }
+        ];
+      };
+      maconite = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./maconite
+          disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.db = import ./maconite/home.nix;
+            home-manager.extraSpecialArgs = { inherit inputs;
           }
         ];
       };
