@@ -40,14 +40,14 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./aconite
+          ./hosts/aconite
           disko.nixosModules.disko
           lanzaboote.nixosModules.lanzaboote
           home-manager.nixosModules.home-manager 
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.db = import ./aconite/home.nix;
+            home-manager.users.db = import ./home-manager/aconite.nix;
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
@@ -56,14 +56,14 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./maconite
+          ./hosts/maconite
           disko.nixosModules.disko
           mango.nixosModules.mango
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.db = import ./maconite/home.nix;
+            home-manager.users.db = import ./home-manager/maconite.nix;
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];

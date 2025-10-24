@@ -7,8 +7,8 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../modules
-    ( import ./disko.nix { disks = [ "/dev/disk/by-id/nvme-CT2000T500SSD8_240546F39100" ]; hostname = config.networking.hostName; })
+    ../../modules/nixos
+    ( import ./disko.nix { disks = [ "/dev/disk/by-id/ata-APPLE_SSD_SM0128G_S2XUNY0K916498" ]; hostname = config.networking.hostName; })
   ];
   dnscrypt-proxy.enable = true;
 
@@ -16,13 +16,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.consoleMode = "max";
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = [
-    "quiet"
-  ];
-  boot.initrd.verbose = false;
-  boot.initrd.kernelModules = [ "amdgpu" ];
-  networking.hostName = "aconite"; # Define your hostname.
+  
+  networking.hostName = "maconite"; # Define your hostname.
+  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -46,6 +42,7 @@
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.download-buffer-size = 524288000;
   
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -59,7 +56,14 @@
     tmux
     mesa
     xdg-utils
+    vim
+    foot
     #inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+  ];
+  programs.mango.enable = true;
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "broadcom-sta"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -103,7 +107,7 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
 
 }
 
