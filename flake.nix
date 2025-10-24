@@ -24,9 +24,13 @@
       url = "github:ndom91/rose-pine-hyprcursor";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+   
+    mango = {
+      url = "github:DreamMaoMao/mango";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, lanzaboote, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, disko, lanzaboote, mango, ... } @ inputs:
   let
   in
   {
@@ -54,12 +58,13 @@
         modules = [
           ./maconite
           disko.nixosModules.disko
+          mango.nixosModules.mango
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.db = import ./maconite/home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs;
+            home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
       };
