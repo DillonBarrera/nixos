@@ -11,6 +11,7 @@
     ../../modules/nixos
     ( import ./disko.nix { disks = [ "/dev/disk/by-id/nvme-CT2000T500SSD8_240546F39100" ]; hostname = config.networking.hostName; })
   ];
+  
   dnscrypt-proxy.enable = true;
 
   # Use the systemd-boot EFI boot loader.
@@ -28,10 +29,6 @@
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
@@ -40,7 +37,6 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.db = {
      isNormalUser = true;
      extraGroups = [ "wheel" "networkmanager" "input" ]; # Enable ‘sudo’ for the user.
@@ -62,14 +58,6 @@
     xdg-utils
     #inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
   ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
 
