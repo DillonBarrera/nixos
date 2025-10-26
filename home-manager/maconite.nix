@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./waybar.nix
     ../modules/home-manager
   ];
 
@@ -15,7 +16,6 @@
     options = "--delete-older-than 30d";
   };
   home.packages = [
-    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
     pkgs.git
     pkgs.usbutils # lsusb
     pkgs.fastfetch
