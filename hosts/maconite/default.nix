@@ -10,7 +10,7 @@
     ../../modules/nixos
     ( import ./disko.nix { disks = [ "/dev/disk/by-id/ata-APPLE_SSD_SM0128G_S2XUNY0K916498" ]; hostname = config.networking.hostName; })
   ];
-  dnscrypt-proxy.enable = true;
+  #dnscrypt-proxy.enable = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;

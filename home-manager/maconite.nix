@@ -21,6 +21,7 @@
     pkgs.fastfetch
     pkgs.rose-pine-cursor
     pkgs.brave
+    pkgs.bat
   ];
 
   home.sessionVariables = { 
