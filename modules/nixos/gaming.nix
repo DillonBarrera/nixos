@@ -2,7 +2,9 @@
 
 {
   options = {
-    game.enable = lib.mkEnableOption "Enable gaming packages"; 
+    game.enable = lib.mkEnableOption "Enable gaming packages";
+  };
+
     config = lib.mkIf config.game.enable {
 
       programs = {
@@ -22,5 +24,4 @@
         "steam-run"
       ];
     };
-  };
 }
