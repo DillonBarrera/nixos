@@ -9,5 +9,17 @@
     x11.enable = true;
   };
 
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Nordic";
+      package = pkgs.nordic;
+    };
+  };
+
+  home.sessionVariables = {
+    QT_QPA_PLATFORM = "wayland";
+  };
+
 }
  
