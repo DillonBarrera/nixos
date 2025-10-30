@@ -38,6 +38,7 @@
           ./hosts/aconite
           disko.nixosModules.disko
           lanzaboote.nixosModules.lanzaboote
+          mango.nixosModules.mango
           home-manager.nixosModules.home-manager 
           {
             home-manager.useGlobalPkgs = true;
