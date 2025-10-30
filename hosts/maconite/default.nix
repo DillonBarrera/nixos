@@ -58,22 +58,7 @@
     xdg-utils
     vim
     foot
-    #inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
   ];
-  programs.mango.enable = true;
-  programs.uwsm = {
-    enable = true;
-    waylandCompositors = {
-      mango = {
-        prettyName = "Mango";
-        comment = "Mango compositor managed by UWSM";
-        binPath = "/run/current-system/sw/bin/mango";
-      };
-    };
-  };
-  xdg.portal = {
-    wlr.enable = true;
-  };
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "broadcom-sta"
