@@ -43,7 +43,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.db = {
      isNormalUser = true;
-     extraGroups = [ "wheel" "networkmanager" "input" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" "networkmanager" "input" "video" ]; # Enable ‘sudo’ for the user.
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -67,6 +67,10 @@
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "broadcom-sta"
+  ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "broadcom-sta-6.30.223.271-57-6.12.55"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

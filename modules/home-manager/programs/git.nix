@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }: {
   programs.git = {
     enable = true;
-    userName = "db";
-    userEmail = "dillon.barrera@gmail.com";
-    extraConfig = {
+    settings = {
+      user.name = "db";
+      user.email = "dillon.barrera@gmail.com";
       init.defaultBranch = "main";
     };
   };
