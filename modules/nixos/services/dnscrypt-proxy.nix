@@ -6,7 +6,7 @@
   };
 
   config = lib.mkIf config.dnscrypt-proxy.enable {
-    services.dnscrypt-proxy2 = {
+    services.dnscrypt-proxy = {
       enable = true;
       settings = {
           ipv4_servers = true;
@@ -23,7 +23,7 @@
       };
     };
   
-    systemd.services.dnscrypt-proxy2.serviceConfig = {
+    systemd.services.dnscrypt-proxy.serviceConfig = {
       StateDirectory = "dnscrypt-proxy";
     };
   };

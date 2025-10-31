@@ -15,7 +15,17 @@
       name = "Nordic";
       package = pkgs.nordic;
     };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
   };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
 
   home.sessionVariables = {
     QT_QPA_PLATFORM = "wayland";
