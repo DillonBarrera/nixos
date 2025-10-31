@@ -5,6 +5,10 @@
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware/master";
+    };
+
     home-manager = { 
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +29,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, lanzaboote, mango, ... } @ inputs:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, disko, lanzaboote, mango, ... } @ inputs:
   let
   in
   {
@@ -56,6 +60,7 @@
           ./hosts/maconite
           disko.nixosModules.disko
           mango.nixosModules.mango
+          nixos-hardware.nixosModules.apple-macbook-air-7
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

@@ -16,6 +16,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.consoleMode = "max";
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.blacklistedKernelModules = [
+    "b43"
+    "bcma"
+    "brcmsmac"
+  ];
   
   networking.hostName = "maconite"; # Define your hostname.
   networking.networkmanager.enable = true;
