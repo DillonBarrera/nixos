@@ -44,6 +44,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.db = import ./home-manager/aconite.nix;
+            home-manager.sharedModules = [ mango.hmModules.mango ];
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
@@ -60,6 +61,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.db = import ./home-manager/maconite.nix;
+            home-manager.sharedModules = [ mango.hmModules.mango ];
             home-manager.extraSpecialArgs = { inherit inputs; };
           }
         ];
