@@ -21,6 +21,11 @@
     "bcma"
     "brcmsmac"
   ];
+
+  boot.kernelParams = [
+    "hid_apple.swap_opt_cmd=1"
+  ];
+    
   
   networking.hostName = "maconite"; # Define your hostname.
   networking.networkmanager.enable = true;
