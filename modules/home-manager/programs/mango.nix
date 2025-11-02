@@ -104,8 +104,9 @@
       trackpad_natural_scrolling=0
       disable_while_typing=1
       left_handed=0
-      middle_button_emulation=1
+      middle_button_emulation=0
       swipe_min_threshold=1
+      click_method=2
 
       # mouse
       # need relogin to make it apply
